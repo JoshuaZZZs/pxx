@@ -3,16 +3,19 @@
     <header>
       <Search />
     </header>
-    <van-tabs>
-      <van-tab
-        v-for="(item, index) in NavList"
-        :key="index"
-        :title="item.meta[0]"
-      >
-        <component :is="item.component"></component>
-      </van-tab>
-    </van-tabs>
-    <router-view></router-view>
+    <van-pull-refresh v-model="isLoading"
+                      @refresh="onRefresh">
+      <van-tabs>
+        <van-tab v-for="(item, index) in NavList"
+                 :key="index"
+                 :title="item.meta[0]">
+          <component class="coms"
+                     :is="item.component"></component>
+        </van-tab>
+      </van-tabs>
+
+      <router-view></router-view>
+    </van-pull-refresh>
   </div>
 </template>
 
@@ -25,9 +28,18 @@ export default {
     Search
   },
   computed: {},
-  data() {
+  data () {
     return {
-      NavList: HomeNav
+      NavList: HomeNav,
+      isLoading: false
+    }
+  },
+  methods: {
+    onRefresh () {
+      setTimeout(() => {
+        this.$toast('刷新成功')
+        this.isLoading = false
+      }, 1000)
     }
   }
 }
@@ -36,5 +48,9 @@ export default {
 <style lang="stylus" scoped>
 .van-tabs
   width 100%
-  overflow auto
+  overflow hidden
+  background #fff
+  .coms
+    height 37em
+    overflow auto
 </style>

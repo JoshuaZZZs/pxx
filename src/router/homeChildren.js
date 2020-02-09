@@ -2,7 +2,7 @@ const homeChildren = [{
     path: 'hot',
     name: 'Hot',
     meta: ['热门'],
-    component: () => import('views/Home/NavList/Hot')
+    component: () => import('views/Home/NavList/Hot/index')
   },
   {
     path: 'box',
