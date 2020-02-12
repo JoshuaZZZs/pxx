@@ -26,30 +26,31 @@ export default {
  width 100%
  margin-bottom 0.8rem
  overflow-y scroll
-.shopList::-webkit-scrollbar
+ul::-webkit-scrollbar
     width 5px
     height 7px
     margin 0 auto
-.shopList::-webkit-scrollbar-track:horizontal
+ul::-webkit-scrollbar-track:horizontal
     background pink
     margin 0 155px
     border-radius 10px
-.shopList::-webkit-scrollbar-thumb
+ul::-webkit-scrollbar-thumb
     background red
     border-radius 10px
  ul
-  width 600px
-  height 180px
+  flex-direction column
+  height 164px
   display flex
   overflow scroll
   flex-wrap wrap
   li
      padding 0.2rem
      display flex
-     margin 0.2rem 1.3rem
+     font-size 12px
+     margin 0.2rem 1.5rem
      flex-direction column
      justify-content center
      align-items center
   img
-   width 50px
+   width 45px
 </style>
